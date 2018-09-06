@@ -37,7 +37,7 @@ app.use((req, res, next)=> {
 
 app.use(express.static(__dirname + '/public'));
 
-app.get('/', (req,res) => {
+app.get('/', (reqk,res) => {
 	res.render('home.hbs',{
 		pageTitle: 'Home page',
 		welcomeMessage: 'Welcome to my website'
@@ -54,7 +54,13 @@ app.get('/bad', (req,res) => {
 	res.send({
 		errrorMessage: 'Unable to handle request.'
 	})
-})
+});
+
+app.get ('/projects', (req, res) => {
+	res.render('projects.hbs', {
+		pageTitle: 'Projects'
+	});
+});
 
 app.listen(port, () => {
 	console.log(`Server is up on port ${port}`);
